@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Mechanic & Tire — San Antonio Auto Repair Since 1980</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='0' fill='%231B2A4A'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='11' fill='%23F59E0B'%3EMM%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#0F1F3D;
+  --navy2:#152645;
+  --navy3:#1B2F52;
+  --amber:#F59E0B;
+  --amber2:#D97706;
+  --white:#FFFFFF;
+  --off:#F8F7F4;
+  --light:#EEF0F5;
+  --ink:#0C1426;
+  --muted:#6B7A96;
+  --border:rgba(15,31,61,0.1);
+  --border-light:rgba(255,255,255,0.12);
+}
+body{font-family:'Space Grotesk',sans-serif;background:var(--off);color:var(--navy);overflow-x:hidden;line-height:1.6}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;height:68px;
+  background:var(--navy);
+}
+.logo{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:-.01em}
+.logo-accent{color:var(--amber)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  background:var(--amber);color:var(--navy);
+  padding:10px 22px;font-size:13px;font-weight:700;letter-spacing:.04em;
+  text-decoration:none;transition:background .2s,transform .2s;
+  display:inline-block;
+}
+.nav-cta:hover{background:var(--amber2);transform:translateY(-1px)}
+
+/* ── STRIP ── */
+.strip{
+  background:var(--amber);padding:12px 64px;
+  display:flex;align-items:center;justify-content:center;gap:36px;
+  margin-top:68px;flex-wrap:wrap;
+}
+.strip-item{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:7px}
+.strip-sep{color:rgba(15,31,61,.3)}
+
+/* ── HERO ── */
+#hero{
+  background:var(--navy);
+  display:grid;grid-template-columns:1fr 420px;
+  min-height:calc(100vh - 68px - 44px);
+  position:relative;overflow:hidden;
+}
+.hero-left{
+  padding:100px 64px 80px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;
+}
+.hero-pattern{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(245,158,11,.06) 0%, transparent 50%),
+    linear-gradient(0deg,rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:100% 100%, 64px 64px, 64px 64px;
+}
+.hero-right{
+  background:var(--amber);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:48px 40px;position:relative;overflow:hidden;
+}
+.hero-right::before{
+  content:'';position:absolute;
+  bottom:-80px;right:-80px;
+  width:280px;height:280px;border-radius:50%;
+  background:rgba(15,31,61,.12);
+}
+.hero-right-year{
+  font-family:'Fraunces',serif;font-size:120px;font-weight:900;
+  color:rgba(15,31,61,.1);line-height:1;letter-spacing:-.04em;
+  position:absolute;bottom:0;right:-10px;
+}
+.hero-right-content{position:relative;z-index:2}
+.hero-right-label{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(15,31,61,.6);margin-bottom:16px;
+}
+.hero-right-stat{margin-bottom:36px}
+.hero-stat-num{font-family:'Fraunces',serif;font-size:64px;font-weight:900;color:var(--navy);line-height:1;letter-spacing:-.03em}
+.hero-stat-label{font-size:12px;font-weight:600;color:rgba(15,31,61,.65);letter-spacing:.04em;margin-top:4px}
+.hero-badge{
+  background:var(--navy);color:var(--amber);
+  padding:16px 20px;margin-top:auto;position:relative;z-index:2;
+}
+.hero-badge-text{font-family:'Fraunces',serif;font-size:17px;font-style:italic;font-weight:700;line-height:1.35;margin-bottom:8px}
+.hero-badge-sub{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,158,11,.7)}
+
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;display:flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--amber)}
+h1{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:clamp(48px,5.5vw,76px);
+  line-height:1.0;letter-spacing:-.03em;color:var(--white);margin-bottom:24px;
+}
+h1 em{font-style:italic;color:var(--amber)}
+.hero-p{font-size:16px;color:rgba(255,255,255,.55);max-width:440px;line-height:1.85;margin-bottom:44px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s}
+.btn-amber{background:var(--amber);color:var(--navy)}
+.btn-amber:hover{background:var(--amber2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,.3)}
+.btn-wire{border:1.5px solid rgba(255,255,255,.2);color:var(--white)}
+.btn-wire:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
+
+/* ── SERVICES ── */
+#services{background:var(--white);padding:96px 64px}
+.sec-top{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:64px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:'';width:20px;height:1.5px;background:var(--amber)}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(32px,4vw,50px);letter-spacing:-.03em;line-height:1.05;color:var(--navy)}
+h2 em{font-style:italic;color:var(--amber)}
+.sec-desc{color:var(--muted);font-size:15px;line-height:1.85;align-self:end}
+
+.free-bar{
+  display:flex;gap:0;margin-bottom:48px;border:1.5px solid var(--border);overflow:hidden;
+}
+.free-tag{
+  flex:1;padding:16px 20px;display:flex;align-items:center;gap:12px;
+  border-right:1.5px solid var(--border);transition:background .2s;
+}
+.free-tag:last-child{border-right:none}
+.free-tag:hover{background:rgba(245,158,11,.04)}
+.free-ico{
+  width:36px;height:36px;background:var(--amber);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+}
+.free-tag-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.free-tag-val{font-size:13px;font-weight:600;color:var(--navy)}
+
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid var(--border)}
+.svc-card{
+  padding:36px 28px;border-right:1.5px solid var(--border);border-bottom:1.5px solid var(--border);
+  transition:background .25s;position:relative;
+}
+.svc-card:hover{background:var(--off)}
+.svc-card-num{
+  font-family:'Fraunces',serif;font-size:11px;font-weight:700;
+  color:var(--muted);letter-spacing:.12em;margin-bottom:20px;
+}
+.svc-card h3{font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.svc-card p{font-size:13px;color:var(--muted);line-height:1.8}
+.svc-arrow{
+  position:absolute;bottom:24px;right:24px;
+  width:28px;height:28px;background:var(--amber);
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+  opacity:0;transition:opacity .2s;color:var(--navy);font-weight:700;
+}
+.svc-card:hover .svc-arrow{opacity:1}
+
+/* ── FINANCE ── */
+#finance{
+  background:var(--navy);padding:96px 64px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
+}
+.finance-kicker{color:var(--amber)}
+.finance-kicker::before{background:var(--amber)}
+.finance-h2{color:var(--white)}
+.finance-h2 em{color:var(--amber)}
+.finance-p{color:rgba(255,255,255,.5);font-size:15px;line-height:1.85;margin-bottom:44px}
+.finance-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border-light)}
+.finance-row{
+  display:flex;align-items:center;gap:20px;padding:20px 24px;
+  border-bottom:1px solid var(--border-light);transition:background .2s;
+}
+.finance-row:last-child{border-bottom:none}
+.finance-row:hover{background:rgba(255,255,255,.04)}
+.finance-row-ico{
+  width:40px;height:40px;background:var(--amber);
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;
+}
+.finance-row h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:2px}
+.finance-row p{font-size:12px;color:rgba(255,255,255,.45)}
+
+.finance-right{display:flex;flex-direction:column;gap:0}
+.finance-quote-block{
+  background:var(--amber);padding:48px 44px;margin-bottom:0;
+}
+.finance-quote-text{
+  font-family:'Fraunces',serif;font-size:22px;font-style:italic;font-weight:700;
+  color:var(--navy);line-height:1.5;margin-bottom:24px;letter-spacing:-.01em;
+}
+.finance-quote-author{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,31,61,.6)}
+.finance-cta-block{
+  background:var(--navy2);padding:32px 44px;
+  border:1px solid var(--border-light);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.finance-cta-text{font-size:15px;font-weight:600;color:var(--white)}
+.finance-cta-text span{color:var(--amber)}
+.finance-cta-btn{
+  background:var(--amber);color:var(--navy);padding:12px 24px;
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s;
+}
+.finance-cta-btn:hover{background:var(--amber2)}
+
+/* ── WHY ── */
+#why{background:var(--light);padding:96px 64px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
+.why-card{background:var(--white);padding:36px 28px;border:1.5px solid transparent;transition:border-color .3s,transform .3s}
+.why-card:hover{border-color:var(--amber);transform:translateY(-4px)}
+.why-num{
+  font-family:'Fraunces',serif;font-size:40px;font-weight:900;
+  color:var(--light);letter-spacing:-.04em;line-height:1;margin-bottom:20px;
+  transition:color .3s;
+}
+.why-card:hover .why-num{color:rgba(245,158,11,.15)}
+.why-card h3{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.85}
+
+/* ── REVIEWS ── */
+#reviews{background:var(--white);padding:96px 64px}
+.reviews-top{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:56px}
+.rating-block{
+  background:var(--navy);padding:32px 40px;
+  display:flex;align-items:center;gap:28px;
+}
+.rating-big{
+  font-family:'Fraunces',serif;font-size:64px;font-weight:900;
+  color:var(--amber);line-height:1;letter-spacing:-.04em;
+}
+.rating-right{}
+.rating-stars-row{color:var(--amber);font-size:16px;letter-spacing:3px;margin-bottom:4px}
+.rating-count{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:var(--off);padding:36px 32px;border:1.5px solid transparent;transition:border-color .25s}
+.review-card:hover{border-color:var(--amber)}
+.r-stars{color:var(--amber);font-size:12px;letter-spacing:3px;margin-bottom:16px}
+.r-text{
+  font-family:'Fraunces',serif;font-size:16px;font-style:italic;font-weight:700;
+  color:var(--navy);line-height:1.65;margin-bottom:20px;
+}
+.r-bar{width:20px;height:2px;background:var(--amber);margin-bottom:14px}
+.r-author{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ── CONTACT ── */
+#contact{background:var(--off);padding:96px 64px}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left>p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:44px}
+.info-stack{display:flex;flex-direction:column;gap:0}
+.info-row{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1.5px solid var(--border)}
+.info-row-ico{color:var(--amber);font-size:16px;flex-shrink:0;margin-top:2px}
+.info-row-l{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.info-row-v{font-size:14px;font-weight:500;color:var(--navy)}
+.info-row-v a{color:var(--navy);text-decoration:none;transition:color .2s}
+.info-row-v a:hover{color:var(--amber)}
+.hgrid{display:grid;grid-template-columns:auto 1fr;gap:3px 16px;margin-top:4px}
+.hday{font-size:13px;color:var(--muted)}.htime{font-size:13px;color:var(--navy)}
+
+.cform{background:var(--navy);padding:48px 44px}
+.cform-title{font-family:'Fraunces',serif;font-size:28px;font-weight:900;letter-spacing:-.02em;color:var(--white);margin-bottom:6px}
+.cform-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:32px}
+.fgrid{display:flex;flex-direction:column;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.fg input,.fg textarea,.fg select{
+  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);
+  color:var(--white);padding:13px 16px;font-size:14px;
+  font-family:'Space Grotesk',sans-serif;outline:none;resize:vertical;width:100%;
+  transition:border-color .2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--amber)}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25)}
+.fg select option{background:#152645}
+.fg textarea{min-height:100px}
+.submit{
+  background:var(--amber);color:var(--navy);border:none;
+  padding:15px;font-family:'Space Grotesk',sans-serif;
+  font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;width:100%;transition:background .2s,transform .2s;
+}
+.submit:hover{background:var(--amber2);transform:translateY(-1px)}
+#ok{
+  display:none;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);
+  color:var(--amber);padding:14px;text-align:center;font-size:12px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:10px;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--navy);border-top:1px solid rgba(255,255,255,.08);
+  padding:24px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-logo{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.3)}
+.footer-logo em{font-style:normal;color:var(--amber)}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em}
+.footer-novu{font-size:11px;color:rgba(255,255,255,.2)}
+.footer-novu a{color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.footer-novu a:hover{color:var(--amber)}
+
+/* ── ANIM ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{animation:fadeUp .6s ease both}
+h1{animation:fadeUp .7s .1s ease both}
+.hero-p{animation:fadeUp .7s .2s ease both}
+.hero-btns{animation:fadeUp .7s .3s ease both}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 24px}.nav-links{display:none}
+  .strip{padding:10px 24px;gap:20px}
+  #hero{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-left,#services,#finance,#why,#reviews,#contact,footer{padding-left:24px;padding-right:24px}
+  #finance,#contact,.contact-wrap{grid-template-columns:1fr;gap:48px}
+  .sec-top,.reviews-top{grid-template-columns:1fr}
+  .svc-grid,.why-grid,.reviews-grid{grid-template-columns:1fr 1fr}
+  .frow{grid-template-columns:1fr}
+  .finance-cta-block{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Mr. <span class="logo-accent">Mechanic</span> & Tire</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#finance">Financing</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+12109223333" class="nav-cta">📞 (210) 922-3333</a>
+</nav>
+
+<div class="strip">
+  <div class="strip-item">✓ We Finance — Bad Credit OK</div>
+  <div class="strip-sep">·</div>
+  <div class="strip-item">✓ Free Brake Inspection</div>
+  <div class="strip-sep">·</div>
+  <div class="strip-item">✓ Free Suspension Diagnostic</div>
+  <div class="strip-sep">·</div>
+  <div class="strip-item">✓ Walk-ins Welcome</div>
+</div>
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-pattern"></div>
+    <div class="eyebrow">San Antonio, TX · Family Owned Since 1980</div>
+    <h1>Trusted Auto<br>Repair & <em>Tires</em><br>Since 1980.</h1>
+    <p class="hero-p">45 years of honest, affordable auto repair in San Antonio. All makes, all models — financing available for everyone, even with bad credit.</p>
+    <div class="hero-btns">
+      <a href="tel:+12109223333" class="btn btn-amber">Call (210) 922-3333</a>
+      <a href="#finance" class="btn btn-wire">We Finance →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-year">1980</div>
+    <div class="hero-right-content">
+      <div class="hero-right-label">Google Rating</div>
+      <div class="hero-right-stat">
+        <div class="hero-stat-num">4.8★</div>
+        <div class="hero-stat-label">564 Verified Reviews</div>
+      </div>
+      <div class="hero-right-label">Experience</div>
+      <div class="hero-right-stat">
+        <div class="hero-stat-num">45 yrs</div>
+        <div class="hero-stat-label">All Makes & Models</div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-text">"If we can't fix it, it can't be fixed."</div>
+      <div class="hero-badge-sub">Mr. Mechanic & Tire · Est. 1980</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="sec-top">
+    <div>
+      <div class="kicker">What We Do</div>
+      <h2>Full-Service Auto<br>Repair & <em>Tires</em></h2>
+    </div>
+    <p class="sec-desc">Every make, every model. From a flat tire to a full engine rebuild — 45 years of experience means we've seen it all and fixed it all.</p>
+  </div>
+  <div class="free-bar">
+    <div class="free-tag"><div class="free-ico">🛑</div><div><div class="free-tag-label">Always Free</div><div class="free-tag-val">Brake Inspection</div></div></div>
+    <div class="free-tag"><div class="free-ico">🔩</div><div><div class="free-tag-label">Always Free</div><div class="free-tag-val">Suspension Diagnostic</div></div></div>
+    <div class="free-tag"><div class="free-ico">📋</div><div><div class="free-tag-label">Always Free</div><div class="free-tag-val">Written Quote</div></div></div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal"><div class="svc-card-num">01</div><h3>Tires</h3><p>New, used, flat repair, rotation and balancing. Best tire prices in San Antonio.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">02</div><h3>Wheel Alignment</h3><p>4-wheel computerized alignment. Better handling, longer tire life.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">03</div><h3>Brakes & Drums</h3><p>Full brake service. Free inspection always included — no surprises.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">04</div><h3>AC Repair</h3><p>Compressor, recharge, full system diagnosis. Stay cool in SA heat.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">05</div><h3>Oil Changes</h3><p>Quick lube, oil pan leaks, valve cover replacement. Fast service.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">06</div><h3>Tune Ups</h3><p>Spark plugs, filters, ignition. Restore performance and fuel efficiency.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">07</div><h3>Suspension</h3><p>Shocks, struts, steering. Free diagnostic — we show you what's worn.</p><div class="svc-arrow">→</div></div>
+    <div class="svc-card reveal"><div class="svc-card-num">08</div><h3>Transmission</h3><p>Flush, fluid change, full transmission repair for all vehicles.</p><div class="svc-arrow">→</div></div>
+  </div>
+</section>
+
+<section id="finance">
+  <div>
+    <div class="kicker finance-kicker">Flexible Financing</div>
+    <h2 class="finance-h2">We Finance<br><em>Everyone.</em></h2>
+    <p class="finance-p">Bad credit, no credit — it doesn't matter. We've helped thousands of San Antonio drivers get back on the road. Same-day approval available.</p>
+    <div class="finance-list">
+      <div class="finance-row reveal"><div class="finance-row-ico">✅</div><div><h4>Bad Credit OK</h4><p>We work with all credit situations. No judgment.</p></div></div>
+      <div class="finance-row reveal"><div class="finance-row-ico">⚡</div><div><h4>Same-Day Approval</h4><p>Get approved and drive out the same day.</p></div></div>
+      <div class="finance-row reveal"><div class="finance-row-ico">💰</div><div><h4>Flexible Payments</h4><p>Plans that fit your budget and schedule.</p></div></div>
+      <div class="finance-row reveal"><div class="finance-row-ico">📋</div><div><h4>No Hidden Fees</h4><p>Clear terms. What we quote is what you pay.</p></div></div>
+    </div>
+  </div>
+  <div class="finance-right reveal">
+    <div class="finance-quote-block">
+      <div class="finance-quote-text">"They financed my transmission repair when no one else would work with my credit. Drove out the same day. This is my shop for life."</div>
+      <div class="finance-quote-author">— Verified Google Review · San Antonio, TX</div>
+    </div>
+    <div class="finance-cta-block">
+      <div class="finance-cta-text">Ready to get started?<br><span>Call us — we'll work something out.</span></div>
+      <a href="tel:+12109223333" class="finance-cta-btn">Call Now →</a>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="kicker">Why Choose Us</div>
+  <h2>San Antonio's Most<br><em>Trusted</em> Auto Shop.</h2>
+  <div class="why-grid">
+    <div class="why-card reveal"><div class="why-num">45</div><h3>Years of Experience</h3><p>Since 1980. If we can't fix it — it can't be fixed. Every make, every model.</p></div>
+    <div class="why-card reveal"><div class="why-num">$0</div><h3>Free Diagnostics</h3><p>Free brake check, suspension diagnostic, and written quote. No surprises.</p></div>
+    <div class="why-card reveal"><div class="why-num">💳</div><h3>We Finance</h3><p>Bad credit welcome. Same-day approval. Get your car fixed today, pay over time.</p></div>
+    <div class="why-card reveal"><div class="why-num">💰</div><h3>Honest Pricing</h3><p>Family owned means no markups. Fair prices, clear explanations, no upsells.</p></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="reviews-top">
+    <div>
+      <div class="kicker">Customer Reviews</div>
+      <h2>What San Antonio<br><em>Says About Us.</em></h2>
+    </div>
+    <div class="rating-block">
+      <div class="rating-big">4.8</div>
+      <div class="rating-right">
+        <div class="rating-stars-row">★★★★★</div>
+        <div class="rating-count">564 Google Reviews</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text">"Best prices in San Antonio. Fixed my brakes and alignment for less than the dealer quoted me just for brakes. Honest, fast, no pressure."</p>
+      <div class="r-bar"></div>
+      <div class="r-author">Verified Google Review</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text">"Flat on the way to work. Patched in 20 minutes, didn't try to sell me a new tire I didn't need. That's integrity. Been coming back 3 years."</p>
+      <div class="r-bar"></div>
+      <div class="r-author">Verified Google Review</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text">"Financed my repair when my credit was bad. Work done right, price matched the quote exactly. Haven't gone anywhere else since."</p>
+      <div class="r-bar"></div>
+      <div class="r-author">Verified Google Review</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px">
+    <a href="https://www.google.com/maps/search/Mr+Mechanic+Tire+3702+Pleasanton+San+Antonio" target="_blank" style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(245,158,11,.3);padding-bottom:3px">
+      Read All 564 Reviews on Google →
+    </a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div class="kicker">Visit Us</div>
+      <h2>Come In<br><em>Anytime.</em></h2>
+      <p>Walk-ins always welcome. Pull up, tell us what's happening, and we'll take a look for free — no appointment needed.</p>
+      <div class="info-stack">
+        <div class="info-row"><div class="info-row-ico">📍</div><div><div class="info-row-l">Address</div><div class="info-row-v">3702 Pleasanton Rd, San Antonio, TX 78221</div></div></div>
+        <div class="info-row"><div class="info-row-ico">📞</div><div><div class="info-row-l">Phone</div><div class="info-row-v"><a href="tel:+12109223333">(210) 922-3333</a></div></div></div>
+        <div class="info-row"><div class="info-row-ico">🕐</div><div><div class="info-row-l">Hours</div><div class="hgrid"><span class="hday">Mon – Fri</span><span class="htime">8:00 AM – 6:00 PM</span><span class="hday">Saturday</span><span class="htime">8:00 AM – 4:00 PM</span><span class="hday">Sunday</span><span class="htime" style="color:var(--muted)">Closed</span></div></div></div>
+        <div class="info-row"><div class="info-row-ico">💳</div><div><div class="info-row-l">Financing</div><div class="info-row-v">Available — Bad Credit Welcome</div></div></div>
+      </div>
+    </div>
+    <div class="cform reveal">
+      <div class="cform-title">Get a Free Quote</div>
+      <div class="cform-sub">We'll call you back the same day. Ask about financing too.</div>
+      <form class="fgrid" name="contact" method="POST" data-netlify="true" onsubmit="go(event)">
+        <input type="hidden" name="form-name" value="contact"/>
+        <div class="frow">
+          <div class="fg"><label>Name</label><input type="text" name="name" placeholder="John Smith" required></div>
+          <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="(210) 000-0000"></div>
+        </div>
+        <div class="fg"><label>Vehicle</label><input type="text" name="vehicle" placeholder="2018 Ford F-150"></div>
+        <div class="fg">
+          <label>Service Needed</label>
+          <select name="service">
+            <option value="">Select a service...</option>
+            <option>Tires — New, Used or Repair</option>
+            <option>Wheel Alignment</option>
+            <option>Brake Service (Free Inspection)</option>
+            <option>Suspension (Free Diagnostic)</option>
+            <option>AC Repair</option>
+            <option>Oil Change</option>
+            <option>Tune Up</option>
+            <option>Transmission Service</option>
+            <option>Financing Inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>Details</label><textarea name="message" placeholder="Describe the issue or ask about financing..."></textarea></div>
+        <button type="submit" class="submit">Send — We'll Call You Today</button>
+        <div id="ok">✓ Message received. Expect a call at (210) 922-3333 today.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Mr. <em>Mechanic</em> & Tire · Est. 1980</div>
+  <div class="footer-copy">3702 Pleasanton Rd · San Antonio, TX 78221 · (210) 922-3333</div>
+  <div class="footer-novu"><a href="https://novuwebdesign.space">Site by Novu</a></div>
+</footer>
+
+<script>
+async function go(e){
+  e.preventDefault();
+  const form=e.target,data=new FormData(form);
+  try{
+    await fetch('/',{method:'POST',body:new URLSearchParams(data).toString(),headers:{'Content-Type':'application/x-www-form-urlencoded'}});
+    document.getElementById('ok').style.display='block';form.reset();
+  }catch(err){alert('Please call us at (210) 922-3333');}
+}
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((el,i)=>{if(el.isIntersecting)setTimeout(()=>el.target.classList.add('in'),(el.target.dataset.i||0)*80)});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.dataset.i=i%4;io.observe(el)});
+</script>
+</body>
+</html>
